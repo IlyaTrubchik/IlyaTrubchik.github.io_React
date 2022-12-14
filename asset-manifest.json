@@ -1,8 +1,7 @@
 {
   "files": {
     "main.css": "/RPILASTVRESION/static/css/main.c186655e.css",
-    "main.js": "/RPILASTVRESION/static/js/main.24a275a9.js",
-    "static/js/787.7b63f85e.chunk.js": "/RPILASTVRESION/static/js/787.7b63f85e.chunk.js",
+    "main.js": "/RPILASTVRESION/static/js/main.4e788393.js",
     "static/media/lihtarovich.jfif": "/RPILASTVRESION/static/media/lihtarovich.8085fbd010b2938f28a4.jfif",
     "static/media/bulgak.jpg": "/RPILASTVRESION/static/media/bulgak.2c2991e896cc65246742.jpg",
     "static/media/kaltovich.jpg": "/RPILASTVRESION/static/media/kaltovich.d3962d0f5a7e4d526b70.jpg",
@@ -10,11 +9,10 @@
     "static/media/alyakseey.jpg": "/RPILASTVRESION/static/media/alyakseey.d97c4499f61147c76d61.jpg",
     "index.html": "/RPILASTVRESION/index.html",
     "main.c186655e.css.map": "/RPILASTVRESION/static/css/main.c186655e.css.map",
-    "main.24a275a9.js.map": "/RPILASTVRESION/static/js/main.24a275a9.js.map",
-    "787.7b63f85e.chunk.js.map": "/RPILASTVRESION/static/js/787.7b63f85e.chunk.js.map"
+    "main.4e788393.js.map": "/RPILASTVRESION/static/js/main.4e788393.js.map"
   },
   "entrypoints": [
     "static/css/main.c186655e.css",
-    "static/js/main.24a275a9.js"
+    "static/js/main.4e788393.js"
   ]
 }
