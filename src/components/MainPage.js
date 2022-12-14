@@ -9,7 +9,7 @@ import { ToggleButton,ToggleButtonGroup,Button } from 'react-bootstrap';
 import '../index.css'
 import Person_Page from './PersonPage';
 import '../App.css'
-import ReactDOM from 'react-dom/client';
+
 /**/
 export let x = Math.floor(Math.random() * 5);
 if(sessionStorage.getItem("Ident")!=null)
@@ -23,7 +23,7 @@ sessionStorage.setItem("Ident",x+1);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 class OnSecondPageButton extends React.Component {
   onclick () {
-    root.render(<Person_Page ident={x+1}></Person_Page>)
+    window.location.assign('/'+(x+1))
   }
 
   render() {
