@@ -20,7 +20,6 @@ x=sessionStorage.getItem("Ident")-1;
 console.log(x);
 sessionStorage.setItem("Ident",x+1);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
 class OnSecondPageButton extends React.Component {
   onclick () {
     window.location.assign('/'+(x+1))
