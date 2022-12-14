@@ -22,7 +22,7 @@ sessionStorage.setItem("Ident",x+1);
 
 class OnSecondPageButton extends React.Component {
   onclick () {
-    window.location.assign('/'+(x+1))
+    window.location.assign('./'+(x+1))
   }
 
   render() {
@@ -61,8 +61,8 @@ return (
     </ToggleButtonGroup>
         </div>
         <div class="menu-navigation-buttons">
-          <Button href="/List" className="list-figures" variant="outline-success"><p><FormattedMessage id="ListBtn"></FormattedMessage></p></Button>        
-          <Button href="/" className="main-page" variant="outline-primary"><p><FormattedMessage id="HomeBtn"></FormattedMessage></p></Button>        
+          <Button href="./List" className="list-figures" variant="outline-success"><p><FormattedMessage id="ListBtn"></FormattedMessage></p></Button>        
+          <Button href="./" className="main-page" variant="outline-primary"><p><FormattedMessage id="HomeBtn"></FormattedMessage></p></Button>        
         </div>
       </div>
     </header>

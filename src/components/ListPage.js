@@ -62,8 +62,8 @@ function ListPage() {
     </ToggleButtonGroup>
         </div>
         <div class="menu-navigation-buttons">
-          <Button href="/List" className="list-figures" variant="outline-success"><p><FormattedMessage id="ListBtn"></FormattedMessage></p></Button>        
-          <Button href="/" className="main-page" variant="outline-primary"><p><FormattedMessage id="HomeBtn"></FormattedMessage></p></Button>        
+          <Button href="./List" className="list-figures" variant="outline-success"><p><FormattedMessage id="ListBtn"></FormattedMessage></p></Button>        
+          <Button href="./" className="main-page" variant="outline-primary"><p><FormattedMessage id="HomeBtn"></FormattedMessage></p></Button>        
         </div>
       </div>
     </header>
@@ -74,7 +74,7 @@ function ListPage() {
 
 function DrawCard(props){
   return (
-    <a href={"/"+(props.card.index)} className='button-link'>
+    <a href={"./"+(props.card.index)} className='button-link'>
     <div class="card">
         <div class="img-container">
           <img src={props.card.img_src} alt=""></img>

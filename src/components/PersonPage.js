@@ -469,8 +469,8 @@ function Person_Page(props) {
     </ToggleButtonGroup>
         </div>
         <div class="menu-navigation-buttons">
-          <Button href="/List" className="list-figures" variant="outline-success"><p><FormattedMessage id="ListBtn"></FormattedMessage></p></Button>        
-          <Button href="/" className="main-page" variant="outline-primary"><p><FormattedMessage id="HomeBtn"></FormattedMessage></p></Button>        
+          <Button href="./List" className="list-figures" variant="outline-success"><p><FormattedMessage id="ListBtn"></FormattedMessage></p></Button>        
+          <Button href="./" className="main-page" variant="outline-primary"><p><FormattedMessage id="HomeBtn"></FormattedMessage></p></Button>        
         </div>
       </div>
     </header>
