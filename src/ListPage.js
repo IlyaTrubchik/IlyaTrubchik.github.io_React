@@ -83,9 +83,11 @@ function  ListPage  () {
 }
 
 function DrawCard(props){
+  
   return (
-    <Link to={"/"+(props.card.index)} className="nav-link"> <a href={"./"+(props.card.index)} className='button-link'>
-    <div class="card">
+     
+    <Link  to={"/"+(props.card.index)} onClick={()=>sessionStorage.setItem("ID",props.card.index)}  className="nav-link"> <a id="PersonLink" href={"./"+(props.card.index) } className='button-link'>
+    <div class="card" >
         <div class="img-container">
           <img src={props.card.img_src} alt=""></img>
         </div>

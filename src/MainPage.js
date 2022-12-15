@@ -19,13 +19,17 @@ x=sessionStorage.getItem("Ident")-1;
 console.log(x);
 sessionStorage.setItem("Ident",x+1);
 
+
 class OnSecondPageButton extends React.Component {
+    onclick () {
+       sessionStorage.setItem("ID",x+1);
+      }
   render() {
     return (<button onClick={(e) => this.onclick(e)}><FormattedMessage id ="gotobtn">Перейти</FormattedMessage></button>);
   }
 } 
 
-   
+
 
 const MainPage = () => {
     
@@ -87,7 +91,7 @@ return (
     </div>
  </section>
  <div class="firstBorder"></div>
- <h1>Разработали</h1>
+ <h1><FormattedMessage id="DevelopedBy"></FormattedMessage></h1>
  <section class ="Developers">
     <div class="Developers-Container">
         <div class="Developer">

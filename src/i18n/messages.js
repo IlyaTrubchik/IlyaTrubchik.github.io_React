@@ -4,6 +4,7 @@ import { Doers_ru } from "../JS/Scripts"
 export const messages={
     
     [LOCALES.ENGLISH]:{
+         'DevelopedBy':"Developers",
         'name0':Doers_Eng[0].name,
         'name1':Doers_Eng[1].name,
         'name2':Doers_Eng[2].name,
@@ -105,6 +106,7 @@ export const messages={
         'Photographers':"Photographers of Belarus",
     },
     [LOCALES.RUSSIAN]:{
+      'DevelopedBy':"Разработчики",
         'name0':Doers_ru[0].name,
         'name1':Doers_ru[1].name,
         'name2':Doers_ru[2].name,

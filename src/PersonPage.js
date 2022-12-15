@@ -450,8 +450,9 @@ function Maps(props){
 }
 
 
-function Person_Page(props) {
-    console.log(props.ident);
+function PersonPage() {
+  let ident=sessionStorage.getItem("ID");
+    console.log(ident);
   const  [locale,setLocale]= useState(()=>{ if(sessionStorage.getItem("Currlang")=="ru" || sessionStorage.getItem("Currlang")==null ){return LOCALES.RUSSIAN}else{return LOCALES.ENGLISH}});
     return (
       <IntlProvider messages={messages[locale]} locale={locale}>
@@ -484,19 +485,19 @@ function Person_Page(props) {
       <h1 className="text-coloring"><FormattedMessage id="AboutDoer">Информация о деятеле:</FormattedMessage></h1>
       <section className="field">
         <div className="main_div">
-          <Person_info ident={props.ident}></Person_info>
+          <Person_info ident={ident}></Person_info>
         </div>
       </section>
-      <TimeLine ident={props.ident}></TimeLine>
+      <TimeLine ident={ident}></TimeLine>
       <h2 className="text-coloring"><FormattedMessage id="AuthorsWorks">Работы автора:</FormattedMessage></h2>
-      <Gal ident={props.ident}></Gal>
+      <Gal ident={ident}></Gal>
       <h2 className="text-coloring"><FormattedMessage id="Video">Видеоролик:</FormattedMessage></h2>
       <section className="field">
-        <Vid ident={props.ident}></Vid>
+        <Vid ident={ident}></Vid>
       </section>
       <h2 className="text-coloring"><FormattedMessage id="AuthorsPlace">Основное место деятельности:</FormattedMessage></h2>
       <section className="field">
-        <Maps ident={props.ident}></Maps>
+        <Maps ident={ident}></Maps>
       </section>
      
       </IntlProvider>
@@ -504,4 +505,4 @@ function Person_Page(props) {
  
 }
 
-export default Person_Page;
+export default PersonPage;
