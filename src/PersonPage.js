@@ -1,14 +1,15 @@
 import './PersonPage.css';
-import '../styles/page_style.css';
+import './styles/page_style.css';
 import {Timeline,TimelineItem} from 'vertical-timeline-component-for-react';
 import PhotoAlbum from 'react-photo-album';
 import React from 'react';
-import { LOCALES } from '../i18n/locales';
+import { LOCALES } from './i18n/locales';
 import { FormattedMessage } from 'react-intl';
-import { messages } from '../i18n/messages';
+import { messages } from './i18n/messages';
 import { IntlProvider } from 'react-intl';
 import { useState } from 'react';
 import { ToggleButton,ToggleButtonGroup,Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 const baretty = [
   {
     src:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/%D0%A2%D1%8D%D0%B0%D1%84%D1%96%D0%BB_%D0%AD%D1%9E%D0%B3%D0%B5%D0%BD%D1%96%D1%8E%D1%88_%D0%91%D0%B0%D1%80%D1%8D%D1%86%D1%96.jpg/640px-%D0%A2%D1%8D%D0%B0%D1%84%D1%96%D0%BB_%D0%AD%D1%9E%D0%B3%D0%B5%D0%BD%D1%96%D1%8E%D1%88_%D0%91%D0%B0%D1%80%D1%8D%D1%86%D1%96.jpg",
@@ -191,7 +192,8 @@ function Person_info(props) {
   if(props.ident==3){
     return(
       <>
-      <div className='portrait_1'>
+      <div class="photo-container">
+      <img src="/images/Boretti.png"></img>
       </div>
         <div class="info">
           <h2 className="text-coloring"><FormattedMessage id="IdentName3">Бореци Теафил Эугениуш</FormattedMessage></h2>
@@ -205,7 +207,8 @@ function Person_info(props) {
   else if(props.ident==2){
     return(
       <>
-      <div className='portrait_2'>
+      <div class="photo-container">
+      <img src="/images/Yan_Bylgak.png"></img>
       </div>
       
         <div class="info">
@@ -220,8 +223,10 @@ function Person_info(props) {
   else if(props.ident==4){
     return(
       <>
-      <div className='portrait_3'>
+      <div class="photo-container">
+      <img src="https://znyata.com/images/stories/interview/lihtarovich/lihtarovich1.jpg"></img>
       </div>
+
         <div class="info">
           <h2 className="text-coloring"><FormattedMessage id="IdentName4">Лихтарович Георгий Леонардович</FormattedMessage></h2>
           <h3 className="text-coloring"><FormattedMessage id="IdentYears4">1947 год.</FormattedMessage></h3>
@@ -234,7 +239,8 @@ function Person_info(props) {
   else if(props.ident==1){
     return(
       <>
-      <div className='portrait_4'>
+      <div class="photo-container">
+      <img src="/images/Aliaksandr_Aliakseyeu.jpg"></img>
       </div>
       
         <div class="info" >
@@ -249,7 +255,8 @@ function Person_info(props) {
   else if(props.ident==5){
     return(
       <>
-      <div className='portrait_5'>
+     <div class="photo-container">
+      <img src="/images/Kaltovich.png"></img>
       </div>
         <div class="info">
           <h2 className="text-coloring"><FormattedMessage id="IdentName5">Калтович Сергей Владимирович</FormattedMessage></h2>
@@ -445,32 +452,32 @@ function Maps(props){
 
 function Person_Page(props) {
     console.log(props.ident);
-  const  [locale,setLocale]= useState(LOCALES.RUSSIAN);
+  const  [locale,setLocale]= useState(()=>{ if(sessionStorage.getItem("Currlang")=="ru" || sessionStorage.getItem("Currlang")==null ){return LOCALES.RUSSIAN}else{return LOCALES.ENGLISH}});
     return (
       <IntlProvider messages={messages[locale]} locale={locale}>
       <header class="header">
       <div class="head-menu">
         <div class="menu-languages">
-        <ToggleButtonGroup type="radio" name="options" defaultValue={0} class="menu-languages">
+        <ToggleButtonGroup type="radio" name="options" defaultValue={()=>{if(sessionStorage.getItem("Currlang")=="ru" || sessionStorage.getItem("Currlang")==null){return 0}else{return 1}}} class="menu-languages">
       <ToggleButton 
         id="lang-ru"
         variant="outline-secondary"
         value={0}
         href="#"
         size='sm'
-        onClick={()=>setLocale(LOCALES.RUSSIAN)}
+        onClick={()=>{setLocale(LOCALES.RUSSIAN);sessionStorage.setItem("Currlang","ru")}}
         >
         <FormattedMessage id="Rulang"></FormattedMessage>
       </ToggleButton>
-      <ToggleButton id="lang-en" variant="outline-secondary" value={1} href="#" size='sm' onClick={()=>setLocale(LOCALES.ENGLISH)} >
+      <ToggleButton id="lang-en" variant="outline-secondary" value={1} href="#" size='sm' onClick={()=>{setLocale(LOCALES.ENGLISH);sessionStorage.setItem("Currlang","eng")}} >
 
         <FormattedMessage id="Englang"></FormattedMessage>
       </ToggleButton>
     </ToggleButtonGroup>
         </div>
         <div class="menu-navigation-buttons">
-          <Button href="./List" className="list-figures" variant="outline-success"><p><FormattedMessage id="ListBtn"></FormattedMessage></p></Button>        
-          <Button href="./" className="main-page" variant="outline-primary"><p><FormattedMessage id="HomeBtn"></FormattedMessage></p></Button>        
+        <Link to="/List" className="nav-link"> <Button href="./List" className="list-figures" variant="outline-success"><p><FormattedMessage id="ListBtn"></FormattedMessage></p></Button></Link>       
+        <Link to="/" className="nav-link"> <Button href="./" className="main-page" variant="outline-primary"><p><FormattedMessage id="HomeBtn"></FormattedMessage></p></Button> </Link>        
         </div>
       </div>
     </header>

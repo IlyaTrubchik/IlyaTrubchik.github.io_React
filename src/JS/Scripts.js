@@ -58,7 +58,7 @@ export const  Doers_ru = [
         {
             name:"Likhtarovich Georgy Leonardovich",
             years:"1947-Present",
-            shortinfo: "Having lived in Minsk all his life, he captured the life of his country and his native city on film. work.",
+            shortinfo: "Having lived all his life in Minsk, he captured on film the life of his country and his native city. In creative photography, the master follows the tradition of the lyrical landscape, characteristic of the Belarusian art of the 1960s-1980s. Good quality, quality and excellent taste are the main parameters of his work.",
             image:"images/Lihtarovich.png"
         },
         {

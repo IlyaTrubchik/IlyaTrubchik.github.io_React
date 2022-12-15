@@ -1,5 +1,6 @@
 body{
     background-color: #74fce3;
+    width: 100%;
   }
   .header-container{
   height:50px;
@@ -39,20 +40,31 @@ color:#217591;
 }
 .info h1 {
   background-color: #68edd5;
+  display: block;
 }
 .info h2{
   background-color: #68edd5;
+  display: block;
 }
 .info p{
   background-color: #68edd5;
+  display: block;
 }
 .info{
   background-color: #68edd5;
+  width: auto;
 }
 .info h3{
   background-color: #68edd5;
+  display: block;
 }
-
+.photo-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width:90%;
+ 
+}
   .text-coloring{
     color:#217591;
     text-align: center;
@@ -63,15 +75,16 @@ color:#217591;
     text-align: center;
   }
   h1.text-coloring{
+    margin-top:100px;
     text-align: center;
    
   }
   
   .field{
+    margin:60px;
     display:flex;
-    justify-content: center;
-    width:100%;
-  
+    justify-content: center;  
+
   }
   
   .navigator{
@@ -99,16 +112,12 @@ color:#217591;
     }
   
   .main_div{
-    width:1200px;
-    height: 500px;
-    margin-top:20px;
-    margin-bottom:20px;
     align-self:center;
-    float:right;
     display: grid;
-    grid-template-columns: 500px 500px;
-    grid-template-rows: 100px 100px 100px;
+    grid-template-rows: 1fr auto;
     border-radius: 10px;
+    justify-content: space-between;
+    justify-items: center;
     background-color: #68edd5;
     color:#217591;
     box-shadow: 10px 12px 8px 0px rgba(34, 60, 80, 0.33);
@@ -134,47 +143,6 @@ color:#217591;
   box-shadow: '0.5rem 0.5rem 2rem 0 rgba(0, 0, 0, 0.2)';
 
  }
-
-  .portrait_1{
-    width:400px;
-    height:400px;
-    margin:20px;
-    background-image: url(barety.jpg);
-    background-size:cover;
-    border-radius:10px;
-  }
-  .portrait_2{
-    width:400px;
-    height:400px;
-    margin:20px;
-    background-image: url(bulgak.jpg);
-    background-size:cover;
-    border-radius:10px;
-  }
-  .portrait_3{
-    width:400px;
-    height:400px;
-    margin:20px;
-    background-image: url(lihtarovich.jfif);
-    background-size:cover;
-    border-radius:10px;
-  }
-  .portrait_4{
-    width:400px;
-    height:400px;
-    margin:20px;
-    background-image: url(alyakseey.jpg);
-    background-size:cover;
-    border-radius:10px;
-  }
-  .portrait_5{
-    width:400px;
-    height:400px;
-    margin:20px;
-    background-image: url(kaltovich.jpg);
-    background-size:cover;
-    border-radius:10px;
-  }
   .gallery{
     width:500px;
     height:300px;

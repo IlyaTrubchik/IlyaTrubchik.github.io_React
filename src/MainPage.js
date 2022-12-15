@@ -1,15 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
-import { LOCALES } from '../i18n/locales';
+import { LOCALES } from './i18n/locales';
 import { FormattedMessage } from 'react-intl';
-import { messages } from '../i18n/messages';
+import { messages } from './i18n/messages';
 import { IntlProvider } from 'react-intl';
-import { Doers_ru } from '../JS/Scripts';
+import { Doers_ru } from './JS/Scripts';
 import { ToggleButton,ToggleButtonGroup,Button } from 'react-bootstrap';
-import '../index.css'
-import Person_Page from './PersonPage';
-import '../App.css'
-
+import './index.css'
+import './App.css'
+import { Link } from 'react-router-dom';
 /**/
 export let x = Math.floor(Math.random() * 5);
 if(sessionStorage.getItem("Ident")!=null)
@@ -21,10 +20,6 @@ console.log(x);
 sessionStorage.setItem("Ident",x+1);
 
 class OnSecondPageButton extends React.Component {
-  onclick () {
-    window.location.assign('./'+(x+1))
-  }
-
   render() {
     return (<button onClick={(e) => this.onclick(e)}><FormattedMessage id ="gotobtn">Перейти</FormattedMessage></button>);
   }
@@ -32,37 +27,38 @@ class OnSecondPageButton extends React.Component {
 
    
 
-function MainPage() {
+const MainPage = () => {
     
    
-  const  [locale,setLocale]= useState(LOCALES.RUSSIAN); 
-
+  const  [locale,setLocale]= useState(()=>{ if(sessionStorage.getItem("Currlang")=="ru" || sessionStorage.getItem("Currlang")==null ){return LOCALES.RUSSIAN}else{return LOCALES.ENGLISH}}); 
 return (
 <IntlProvider  messages={messages[locale]} locale={locale}> 
 <body>
 <header class="mainheader">
+  
       <div class="head-menu">
         <div class="menu-languages">
-        <ToggleButtonGroup type="radio" name="options" defaultValue={0} class="menu-languages">
+        <ToggleButtonGroup type="radio" name="options" defaultValue={()=>{if(sessionStorage.getItem("Currlang")=="ru" || sessionStorage.getItem("Currlang")==null){return 0}else{return 1}}} class="menu-languages">
       <ToggleButton 
         id="lang-ru"
         variant="outline-secondary"
         value={0}
         href="#"
         size='sm'
-        onClick={()=>setLocale(LOCALES.RUSSIAN)}
+        onClick={()=>{setLocale(LOCALES.RUSSIAN);sessionStorage.setItem("Currlang","ru")}}
         >
         <FormattedMessage id="Rulang"></FormattedMessage>
       </ToggleButton>
-      <ToggleButton id="lang-en" variant="outline-secondary" value={1} href="#" size='sm' onClick={()=>setLocale(LOCALES.ENGLISH)} >
+      <ToggleButton id="lang-en" variant="outline-secondary" value={1} href="#" size='sm' onClick={()=>{setLocale(LOCALES.ENGLISH);sessionStorage.setItem("Currlang","eng")}} >
 
       <FormattedMessage id="Englang"></FormattedMessage>
       </ToggleButton>
     </ToggleButtonGroup>
         </div>
         <div class="menu-navigation-buttons">
-          <Button href="./List" className="list-figures" variant="outline-success"><p><FormattedMessage id="ListBtn"></FormattedMessage></p></Button>        
-          <Button href="./" className="main-page" variant="outline-primary"><p><FormattedMessage id="HomeBtn"></FormattedMessage></p></Button>        
+        
+        <Link to="/List" className="nav-link"><Button href="./List" className="list-figures" variant="outline-success"><p><FormattedMessage id="ListBtn"></FormattedMessage></p></Button></Link>      
+        <Link to="/" className="nav-link"> <Button href="./" className="main-page" variant="outline-primary"><p><FormattedMessage id="HomeBtn"></FormattedMessage></p></Button></Link>     
         </div>
       </div>
     </header>
@@ -70,7 +66,7 @@ return (
     <div class="firstBorder"></div>
 <section class ="AboutSiteContainer">
     <div class="SiteInfo">
-        <p><FormattedMessage id="SiteInfo">Сайт, или веб-сайт, также веб-узел, — одна или несколько логически связанных между собой веб-страниц; также место расположения контента сервера. Обычно сайт в Интернете представляет собой массив связанных данных, имеющий уникальный адрес и воспринимаемый пользователями как единое целое.</FormattedMessage></p>
+        <p><FormattedMessage id="SiteInfo"></FormattedMessage></p>
     </div>
 </section>
 <div class="firstBorder"></div>
@@ -83,7 +79,7 @@ return (
         </div>
         <h2 id="DoerYears" ><FormattedMessage id={"time"+x}>1978-Настоящее время</FormattedMessage></h2>
         <div class = "DayPersonBtn">
-        <OnSecondPageButton  ><FormattedMessage id ="gotobtn">Перейти</FormattedMessage></OnSecondPageButton>
+        <Link to={"/"+(x+1)} className="nav-link"><OnSecondPageButton  ><FormattedMessage id ="gotobtn">Перейти</FormattedMessage></OnSecondPageButton></Link>
         </div>
     </div>
     <div id="DoerShortInfo" class = "HumanDayInfo" >
