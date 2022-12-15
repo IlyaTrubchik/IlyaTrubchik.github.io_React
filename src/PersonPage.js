@@ -10,6 +10,7 @@ import { IntlProvider } from 'react-intl';
 import { useState } from 'react';
 import { ToggleButton,ToggleButtonGroup,Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 const baretty = [
   {
     src:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/%D0%A2%D1%8D%D0%B0%D1%84%D1%96%D0%BB_%D0%AD%D1%9E%D0%B3%D0%B5%D0%BD%D1%96%D1%8E%D1%88_%D0%91%D0%B0%D1%80%D1%8D%D1%86%D1%96.jpg/640px-%D0%A2%D1%8D%D0%B0%D1%84%D1%96%D0%BB_%D0%AD%D1%9E%D0%B3%D0%B5%D0%BD%D1%96%D1%8E%D1%88_%D0%91%D0%B0%D1%80%D1%8D%D1%86%D1%96.jpg",
@@ -451,8 +452,9 @@ function Maps(props){
 
 
 function PersonPage() {
-  let ident=sessionStorage.getItem("ID");
-    console.log(ident);
+  const params= useParams();
+  let ident=params.id;
+
   const  [locale,setLocale]= useState(()=>{ if(sessionStorage.getItem("Currlang")=="ru" || sessionStorage.getItem("Currlang")==null ){return LOCALES.RUSSIAN}else{return LOCALES.ENGLISH}});
     return (
       <IntlProvider messages={messages[locale]} locale={locale}>

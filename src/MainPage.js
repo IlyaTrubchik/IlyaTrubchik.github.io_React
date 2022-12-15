@@ -21,9 +21,7 @@ sessionStorage.setItem("Ident",x+1);
 
 
 class OnSecondPageButton extends React.Component {
-    onclick () {
-       sessionStorage.setItem("ID",x+1);
-      }
+
   render() {
     return (<button onClick={(e) => this.onclick(e)}><FormattedMessage id ="gotobtn">Перейти</FormattedMessage></button>);
   }

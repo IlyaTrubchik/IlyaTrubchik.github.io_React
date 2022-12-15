@@ -8,6 +8,7 @@ import { LOCALES } from './i18n/locales';
 import { messages } from './i18n/messages';
 import { IntlProvider } from 'react-intl';
 import { Link } from 'react-router-dom';
+
 const names = [{name: "Бореци Теафил Эугениуш",
                 name_eng:"Boretsi Theafil Eugeniusz",
                 dates: "1860 г. - 1910 г.",
@@ -86,7 +87,7 @@ function DrawCard(props){
   
   return (
      
-    <Link  to={"/"+(props.card.index)} onClick={()=>sessionStorage.setItem("ID",props.card.index)}  className="nav-link"> <a id="PersonLink" href={"./"+(props.card.index) } className='button-link'>
+    <Link  to={"/"+(props.card.index)}  className="nav-link"> <a id="PersonLink" href={"./"+(props.card.index) } className='button-link'>
     <div class="card" >
         <div class="img-container">
           <img src={props.card.img_src} alt=""></img>
